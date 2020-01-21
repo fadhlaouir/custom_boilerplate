@@ -1,0 +1,19 @@
+.articles {
+    margin: 20px;
+
+    .buttons {
+        margin-top: 20px;
+    }
+
+    .articles-list-header {
+        font-weight: bold;
+    }
+
+    .articles-list {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+    }
+}

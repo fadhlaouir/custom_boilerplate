@@ -1,0 +1,10 @@
+/*
+ *
+ * Articles constants
+ *
+ */
+
+const FETCH_ARTICLES = 'app/Articles/FETCH_ARTICLES'
+export const FETCH_ARTICLES_REQUEST = `${FETCH_ARTICLES}_REQUEST`
+export const FETCH_ARTICLES_SUCCESS = `${FETCH_ARTICLES}_SUCCESS`
+export const FETCH_ARTICLES_FAILURE = `${FETCH_ARTICLES}_FAILURE`
