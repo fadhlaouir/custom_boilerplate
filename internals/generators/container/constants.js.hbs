@@ -1,7 +1,12 @@
 /*
- *
- * {{ properCase name }} constants
- *
- */
+*
+* {{ properCase name }} constants
+*
+*/
 
-export const DEFAULT_ACTION = 'app/{{ properCase name }}/DEFAULT_ACTION';
+import { generateActionTypes } from '../../utils/generic-saga'
+const root = 'app/{{ upperCase name }}/'
+
+export default {
+defaultAction: generateActionTypes(root, 'DEFAULT_ACTION'),
+}

@@ -1,6 +1,16 @@
-// import { take, call, put, select } from 'redux-saga/effects';
-// import * as CONSTANTS from './constants';
-// Individual exports for testing
+import { takeEvery, all } from 'redux-saga/effects';
+import constants from './constants';
+import { generateSaga, sagaTypes } from '../../utils/generic-saga'
+
+export function* defaultActionWatcher() {
+  yield takeEvery(
+    constants.defaultAction.request,
+    generateSaga(sagaTypes.WITHOUT_API, constants.defaultAction),
+  )
+}
+
 export default function* {{ camelCase name }}Saga() {
-  // See example in containers/HomePage/saga.js
+  yield all([
+    defaultActionWatcher(),
+  ])
 }

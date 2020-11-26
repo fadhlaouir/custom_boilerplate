@@ -76,12 +76,12 @@ module.exports = {
         templateFile: './container/main-componenet.jsx.hbs',
         abortOnFail: true,
       },
-      {
-        type: 'add',
-        path: '../../app/pages/{{properCase name}}/tests/index.test.js',
-        templateFile: './container/test.js.hbs',
-        abortOnFail: true,
-      },
+      // {
+      //   type: 'add',
+      //   path: '../../app/pages/{{properCase name}}/tests/index.test.js',
+      //   templateFile: './container/test.js.hbs',
+      //   abortOnFail: true,
+      // },
     ];
 
     // If component wants messages
@@ -104,12 +104,12 @@ module.exports = {
         templateFile: './container/actions.js.hbs',
         abortOnFail: true,
       });
-      actions.push({
-        type: 'add',
-        path: '../../app/shared/redux/{{lowerCase name}}/tests/actions.test.js',
-        templateFile: './container/actions.test.js.hbs',
-        abortOnFail: true,
-      });
+      // actions.push({
+      //   type: 'add',
+      //   path: '../../app/shared/redux/{{lowerCase name}}/tests/actions.test.js',
+      //   templateFile: './container/actions.test.js.hbs',
+      //   abortOnFail: true,
+      // });
 
       // Constants
       actions.push({
@@ -127,13 +127,13 @@ module.exports = {
         templateFile: './container/selectors.js.hbs',
         abortOnFail: true,
       });
-      actions.push({
-        type: 'add',
-        path:
-          '../../app/shared/redux/{{lowerCase name}}/tests/selectors.test.js',
-        templateFile: './container/selectors.test.js.hbs',
-        abortOnFail: true,
-      });
+      // actions.push({
+      //   type: 'add',
+      //   path:
+      //     '../../app/shared/redux/{{lowerCase name}}/tests/selectors.test.js',
+      //   templateFile: './container/selectors.test.js.hbs',
+      //   abortOnFail: true,
+      // });
 
       // Reducer
       actions.push({
@@ -166,12 +166,12 @@ module.exports = {
         templateFile: './container/saga.js.hbs',
         abortOnFail: true,
       });
-      actions.push({
-        type: 'add',
-        path: '../../app/shared/redux/{{lowerCase name}}/tests/saga.test.js',
-        templateFile: './container/saga.test.js.hbs',
-        abortOnFail: true,
-      });
+      // actions.push({
+      //   type: 'add',
+      //   path: '../../app/shared/redux/{{lowerCase name}}/tests/saga.test.js',
+      //   templateFile: './container/saga.test.js.hbs',
+      //   abortOnFail: true,
+      // });
     }
 
     if (data.wantLoadable) {

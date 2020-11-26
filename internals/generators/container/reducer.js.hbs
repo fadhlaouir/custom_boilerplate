@@ -4,15 +4,21 @@
  *
  */
 import produce from 'immer';
-import * as CONSTANTS from './constants';
+import constants from './constants';
 
-export const initialState = {};
+export const initialState = {
+  data: {},
+  local: {
+    loading: {},
+    errors: {},
+  },
+};
 
 /* eslint-disable default-case, no-param-reassign */
 const {{ camelCase name }}Reducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
-      case CONSTANTS.DEFAULT_ACTION:
+      case constants.DEFAULT_ACTION:
         break;
     }
   });

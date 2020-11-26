@@ -3,10 +3,9 @@
  * {{ properCase name }} actions
  *
  */
-import * as CONSTANTS from './constants';
+ import { generateEmptyAction } from '../../utils/generic-saga'
+import constants from './constants';
 
-export function defaultAction() {
-    return {
-        type: CONSTANTS.DEFAULT_ACTION,
-    };
+export default {
+  defaultAction: generateEmptyAction(constants.defaultAction.request),
 }

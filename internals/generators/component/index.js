@@ -79,12 +79,12 @@ module.exports = {
           templateFile: './component/comoponents.jsx.hbs',
           abortOnFail: true,
         },
-        {
-          type: 'add',
-          path: '../../app/shared/components/{{properCase name}}/tests/index.test.js',
-          templateFile: './component/test.js.hbs',
-          abortOnFail: true,
-        },
+        // {
+        //   type: 'add',
+        //   path: '../../app/shared/components/{{properCase name}}/tests/index.test.js',
+        //   templateFile: './component/test.js.hbs',
+        //   abortOnFail: true,
+        // },
       )
 
       // Styles
@@ -127,12 +127,12 @@ module.exports = {
           templateFile: './component/comoponents.jsx.hbs',
           abortOnFail: true,
         },
-        {
-          type: 'add',
-          path: '../../app/pages/{{page}}/{{properCase name}}/tests/index.test.js',
-          templateFile: './component/test.js.hbs',
-          abortOnFail: true,
-        },
+        // {
+        //   type: 'add',
+        //   path: '../../app/pages/{{page}}/{{properCase name}}/tests/index.test.js',
+        //   templateFile: './component/test.js.hbs',
+        //   abortOnFail: true,
+        // },
       )
       actions.push({
         type: 'add',

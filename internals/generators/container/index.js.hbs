@@ -20,12 +20,12 @@ import injectSaga from 'utils/injectSaga';
 import { DAEMON } from 'utils/constants';
 {{/if}}
 {{#if wantActionsAndReducer}}
-import { useInjectReducer } from 'utils/injectReducer';
-import makeSelect{{properCase name}} from '../../shared/redux/{{ lowerCase name }}/selectors';
+import injectReducer from 'utils/injectReducer';
+import makeSelect{{properCase name}}, {selectData, selectLocal} from '../../shared/redux/{{ lowerCase name }}/selectors';
 import reducer from '../../shared/redux/{{ lowerCase name }}/reducer';
 
 {{#if wantActionsAndReducer}}
-import * as actions from '../../shared/redux/{{ lowerCase name }}/actions';
+import actions from '../../shared/redux/{{ lowerCase name }}/actions';
 {{/if}}
 
 {{/if}}
@@ -36,20 +36,15 @@ import saga from '../../shared/redux/{{ lowerCase name }}/saga';
 
 import {{properCase name }} from './{{properCase name }}';
 
-const {{ properCase name }}Index = (props) => {
-{{#if wantActionsAndReducer}}
-useInjectReducer({ key: '{{ camelCase name }}', reducer });
-{{/if}}
-
-  return (
+const {{ properCase name }}Index = props => (
     <{{ properCase name }} {...props} />
   )
-}
-
 
 {{#if wantActionsAndReducer}}
 const mapStateToProps = createStructuredSelector({
 {{ camelCase name }}: makeSelect{{properCase name}}(),
+data: selectData(),
+local: selectLocal(),
 });
 {{/if}}
 
@@ -71,6 +66,9 @@ const withConnect = connect(null, mapDispatchToProps);
 {{/if}}
 
 export default compose(
+{{#if wantActionsAndReducer}}
+injectReducer({ key: '{{ camelCase name }}', reducer }),
+{{/if}}
 withConnect,
 {{#if memo}}
 memo,

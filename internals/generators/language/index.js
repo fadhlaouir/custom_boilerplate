@@ -61,7 +61,7 @@ module.exports = {
     actions.push({
       type: 'modify',
       path: '../../app/i18n.js',
-      pattern: /(\s+'[a-z]+',\n)(?!.*\s+'[a-z]+',)/g,
+      pattern: /(\s+'en',)/g,
       templateFile: './language/app-locale.hbs',
     });
     actions.push({
@@ -73,13 +73,13 @@ module.exports = {
     actions.push({
       type: 'modify',
       path: '../../app/i18n.js',
-      pattern: /(addLocaleData\([a-z]+LocaleData\);\n)(?!.*addLocaleData\([a-z]+LocaleData\);)/g,
+      pattern: /(addLocaleData\(enLocaleData\);)/g,
       templateFile: './language/add-locale-data.hbs',
     });
     actions.push({
       type: 'modify',
       path: '../../app/i18n.js',
-      pattern: /([a-z]+:\sformatTranslationMessages\('[a-z]+',\s[a-z]+TranslationMessages\),\n)(?!.*[a-z]+:\sformatTranslationMessages\('[a-z]+',\s[a-z]+TranslationMessages\),)/g,
+      pattern: /(en+:\sformatTranslationMessages\('en',\senTranslationMessages\),)/g,
       templateFile: './language/format-translation-messages.hbs',
     });
     actions.push({
@@ -91,7 +91,7 @@ module.exports = {
     actions.push({
       type: 'modify',
       path: '../../app/index.js',
-      pattern: /(import\('intl\/locale-data\/jsonp\/[a-z]+\.js'\),\n)(?!.*import\('intl\/locale-data\/jsonp\/[a-z]+\.js'\),)/g,
+      pattern: /(import\('intl\/locale-data\/jsonp\/en.js'\),)/g,
       templateFile: './language/polyfill-intl-locale.hbs',
     });
 

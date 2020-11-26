@@ -6,11 +6,15 @@
 
 import React from 'react';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 {{#if wantMessages}}
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage,
+{{#if wantHeaders}}
+injectIntl, intlShape
+{{/if}}
+} from 'react-intl';
 {{/if}}
 {{#if wantHeaders}}
 import { Helmet } from 'react-helmet';
@@ -23,22 +27,80 @@ import messages from './messages';
 import './{{ dashCase name }}.scss';
 
 
-const {{ properCase name }} = () =>
-<div className="{{ dashCase name }}">
+const {{ properCase name }} = (
+{{#if wantActionsAndReducer}}
+{{#if wantHeaders}}
+{ intl, data, local }
+{{/if}}
+{{/if}}
+
+{{#if wantActionsAndReducer}}
+{{#unless wantHeaders}}
+{ data, local }
+{{/unless}}
+{{/if}}
+
+{{#unless wantActionsAndReducer}}
+{{#if wantHeaders}}
+{ intl }
+{{/if}}
+{{/unless}}
+
+) => {
+{{#if wantActionsAndReducer}}
+const { loading, errors } = local
+{{/if}}
+
+{{#if wantHeaders}}
+const helmetMessages = {
+helmetTitle: intl.formatMessage({
+...messages.helmetTitle,
+}),
+helmetName: intl.formatMessage({
+...messages.helmetName,
+}),
+helmetContent: intl.formatMessage({
+...messages.helmetContent,
+}),
+};
+{{/if}}
+
+return (<div className="{{ dashCase name }}">
   {{#if wantHeaders}}
   <Helmet>
-    <title>{{properCase name}}</title>
-    <meta name="description" content="Description of {{properCase name}}" />
+    <title>{helmetMessages.helmetTitle}</title>
+    <meta name={helmetMessages.helmetName} content={helmetMessages.helmetContent} />
   </Helmet>
   {{/if}}
   {{#if wantMessages}}
   <FormattedMessage {...messages.header} />
   {{/if}}
 </div>
+)
+}
 
 
 
 {{ properCase name }}.propTypes = {
+{{#if wantHeaders}}
+/**
+* The Intl object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string
+comparison, number formatting, and date and time formatting.
+*/
+intl: intlShape.isRequired,
+{{/if}}
+{{#if wantActionsAndReducer}}
+data: PropTypes.object.isRequired,
+local: PropTypes.object.isRequired,
+{{/if}}
 };
 
-export default {{ properCase name }};
+export default
+{{#if wantHeaders}}
+injectIntl(
+{{/if}}
+{{ properCase name }}
+{{#if wantHeaders}}
+)
+{{/if}}
+;

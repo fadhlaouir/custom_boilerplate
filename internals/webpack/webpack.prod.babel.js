@@ -30,6 +30,7 @@ module.exports = require('./webpack.base.babel')({
           warnings: false,
           compress: {
             comparisons: false,
+            drop_console: true,
           },
           parse: {},
           mangle: true,
@@ -117,9 +118,9 @@ module.exports = require('./webpack.base.babel')({
     }),
 
     new WebpackPwaManifest({
-      name: 'React Boilerplate',
-      short_name: 'React BP',
-      description: 'My React Boilerplate-based project!',
+      name: 'Titan Learn',
+      short_name: 'Titan Learn',
+      description: 'Titan Learn',
       background_color: '#fafafa',
       theme_color: '#b1624d',
       inject: true,
